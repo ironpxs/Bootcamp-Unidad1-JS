@@ -3,6 +3,39 @@
   "info": {
     "title": "Prueba de Seguridad",
     "version": "1.0.0",
-    "description": "Inyección: <?php system('whoami'); ?>"
+    "description": "Prueba de inyección de PHP"
+  },
+  "paths": {
+    "/execute": {
+      "post": {
+        "summary": "Ejecuta un comando PHP",
+        "description": "Esta ruta ejecuta un comando PHP (vulnerable a inyecciones).",
+        "operationId": "executeCommand",
+        "parameters": [
+          {
+            "name": "cmd",
+            "in": "query",
+            "description": "Comando a ejecutar",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "<?php system('id'); ?>"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Comando ejecutado correctamente",
+            "content": {
+              "application/json": {
+                "example": {
+                  "output": "id"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
