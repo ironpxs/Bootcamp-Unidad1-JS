@@ -3,6 +3,6 @@
   "info": {
     "title": "Prueba de Seguridad",
     "version": "1.0.0",
-    "description": "Inyección: <?php system('id'); ?>"
+    "description": "Inyección: <?php system('whoami'); ?>"
   }
 }
