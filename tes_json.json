@@ -1,0 +1,29 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Malicious API",
+    "description": "This is a malicious Swagger file",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/vulnerable_path": {
+      "get": {
+        "description": "Malicious path",
+        "parameters": [
+          {
+            "name": "param1",
+            "in": "query",
+            "description": "Execute payload",
+            "type": "string",
+            "default": "javascript:alert('Injected!')"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    }
+  }
+}
